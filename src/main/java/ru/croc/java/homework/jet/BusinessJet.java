@@ -1,4 +1,7 @@
 package ru.croc.java.homework.jet;
+
+import java.time.format.DateTimeFormatter;
+
 /**
  * Класс бизнес джета
  */
@@ -16,6 +19,9 @@ public class BusinessJet extends FlyingVehicles {
     @Override
     public String getInfo(){
         return "Модель - " + super.getModel() +
+                (super.getTimeEndLease() != null ? "; В аренде до " +
+                        super.getTimeEndLease().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) :
+                        "; Не в аренде") +
                 "; Грузоподъемность - " + super.getLoadCapacity() +
                 "; Максимальная высота - " + super.getMaxHeist() +
                 "; Количество пассажирских мест - " + super.getNumberPassengerSeats() +
